@@ -79,7 +79,6 @@ def local_dir_type(value: str) -> str:
 
 
 def bool_type(value: str) -> bool:
-
     if isinstance(value, bool):
         return value
 
@@ -94,7 +93,6 @@ def bool_type(value: str) -> bool:
 
 class Config:
     def __init__(self):
-
         # Basic key-value store w/ typing
         self.values: Dict[str, Dict[str, Any]] = {
             "lhost": {

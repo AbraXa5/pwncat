@@ -2,7 +2,6 @@ from pwncat.commands import Complete, Parameter, CommandDefinition
 
 
 class Command(CommandDefinition):
-
     PROG = "shortcut"
     ARGS = {
         "prefix": Parameter(
@@ -13,7 +12,6 @@ class Command(CommandDefinition):
     LOCAL = True
 
     def run(self, manager, args):
-
         for command in manager.parser.commands:
             if command.PROG == args.command:
                 manager.parser.shortcuts[args.prefix] = command

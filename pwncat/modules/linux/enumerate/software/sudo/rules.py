@@ -185,7 +185,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.PER_USER
 
     def enumerate(self, session):
-
         # We need to ensure that the user database is retrieved...
         # NOTE: there should probably be a shortcut for this
         session.find_user(uid=0)
@@ -209,7 +208,6 @@ class Module(EnumerateModule):
                         rules.append(rule)
 
                 for rule in rules:
-
                     # We can't handle abilities which we didn't parse properly
                     if not rule.matched:
                         continue
@@ -250,7 +248,6 @@ class Module(EnumerateModule):
 
         # Check for our privileges
         try:
-
             current_user = session.current_user()
 
             proc = session.platform.sudo(["sudo", "-nl"], as_is=True, text=True)

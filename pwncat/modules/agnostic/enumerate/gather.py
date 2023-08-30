@@ -19,7 +19,6 @@ def list_wrapper(iterable):
 
 def FileType(mode: str = "r"):
     def _file_type(path: str):
-
         if path is None:
             return None
 
@@ -116,7 +115,6 @@ class Module(pwncat.modules.BaseModule):
                         yield Status(fact.title(session))
 
         for module in modules:
-
             if types:
                 for pattern in types:
                     for typ in module.PROVIDES:

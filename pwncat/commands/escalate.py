@@ -24,13 +24,11 @@ class Link:
     """Link in the escalation chain"""
 
     def __init__(self, old_session, escalation, result):
-
         self.old_session = old_session
         self.escalation = escalation
         self.result = result
 
     def leave(self):
-
         if self.escalation.type == "escalate.spawn":
             self.result.log(
                 f"leaving behind open session as [cyan]{self.old_session.current_user().name}[/cyan]"
@@ -92,7 +90,6 @@ class Command(CommandDefinition):
     }
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         if args.command == "help":
             self.parser.print_usage()
             return
@@ -100,7 +97,6 @@ class Command(CommandDefinition):
         if args.command == "list":
             self.list_abilities(manager, args)
         elif args.command == "run":
-
             if args.user:
                 args.user = manager.target.find_user(name=args.user)
             else:
@@ -144,7 +140,6 @@ class Command(CommandDefinition):
         failed = []
 
         while True:
-
             # Grab the current user in the active session
             current_user = manager.target.current_user()
 

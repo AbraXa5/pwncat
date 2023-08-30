@@ -28,7 +28,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         init = util.Init.UNKNOWN
         version = None
 

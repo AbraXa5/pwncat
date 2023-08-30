@@ -36,7 +36,6 @@ class Command(CommandDefinition):
     LOCAL = True
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         if args.list or (not args.kill and args.session_id is None):
             table = Table(title="Active Sessions", box=box.MINIMAL_DOUBLE_HEAD)
 

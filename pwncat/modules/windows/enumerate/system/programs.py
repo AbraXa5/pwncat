@@ -26,7 +26,6 @@ class Module(EnumerateModule):
     PLATFORM = [Windows]
 
     def enumerate(self, session):
-
         try:
             program_files = session.platform.powershell(
                 'Get-ChildItem "C:\\Program Files","C:\\Program Files (x86)" -ErrorAction SilentlyContinue | Select Fullname'

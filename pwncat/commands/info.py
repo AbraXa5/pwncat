@@ -26,7 +26,6 @@ class Command(CommandDefinition):
     }
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         if not args.module and manager.config.module is None:
             console.log("[red]error[/red]: no module specified")
             return

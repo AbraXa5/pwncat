@@ -139,7 +139,6 @@ class Module(BaseModule):
     SHARPHOUND_URL = "https://raw.githubusercontent.com/BloodHoundAD/BloodHound/master/Collectors/SharpHound.ps1"
 
     def run(self, session: "pwncat.manager.Session", **kwargs):
-
         # First, we need to load BloodHound
         try:
             yield Status("importing Invoke-BloodHound cmdlet")

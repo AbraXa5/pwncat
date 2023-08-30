@@ -15,7 +15,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.ONCE
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         passwd = session.platform.Path("/etc/passwd")
         shadow = session.platform.Path("/etc/shadow")
         users = {}

@@ -89,7 +89,6 @@ class Module(ImplantModule):
     }
 
     def install(self, session: "pwncat.manager.Session", user, key):
-
         yield Status("verifying user permissions")
         current_user = session.current_user()
         if user != "__pwncat_current__" and current_user.id != 0:

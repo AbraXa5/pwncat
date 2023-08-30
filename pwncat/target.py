@@ -64,7 +64,6 @@ class Target(persistent.Persistent):
     """
 
     def __init__(self):
-
         self.name: Optional[str] = None
         """ An optional friendly name that can be used to refer to this target """
         self.public_address: Optional[Tuple[str, int]] = None

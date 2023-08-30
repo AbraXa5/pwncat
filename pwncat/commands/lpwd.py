@@ -13,5 +13,4 @@ class Command(CommandDefinition):
     ARGS = {}
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         console.print(Path.cwd())

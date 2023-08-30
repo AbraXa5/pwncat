@@ -27,7 +27,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         try:
             with session.platform.open("/proc/self/cgroup", "r") as filp:
                 if "docker" in filp.read().lower():

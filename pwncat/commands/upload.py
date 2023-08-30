@@ -32,7 +32,6 @@ class Command(CommandDefinition):
     }
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         # Create a progress bar for the download
         progress = Progress(
             TextColumn("[bold cyan]{task.fields[filename]}", justify="right"),

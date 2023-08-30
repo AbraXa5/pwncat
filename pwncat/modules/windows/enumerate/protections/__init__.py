@@ -16,7 +16,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.ONCE
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         query_system_info = """
         function query_sysinfo {
           $os_info = (Get-CimInstance Win32_operatingsystem)

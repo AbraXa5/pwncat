@@ -135,7 +135,6 @@ class Group(Fact):
         self.members: PersistentList = PersistentList(members)
 
     def title(self, session: "pwncat.manager.Session"):
-
         members = []
         for uid in self.members:
             user = session.find_user(uid=uid)

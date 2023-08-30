@@ -31,7 +31,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         try:
             with session.platform.open("/etc/hosts", "r") as filp:
                 for line in filp:

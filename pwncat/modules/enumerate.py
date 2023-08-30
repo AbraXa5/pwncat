@@ -257,7 +257,6 @@ class EnumerateModule(BaseModule):
             return
 
         for item in self.enumerate(session):
-
             # Allow non-fact status updates
             if isinstance(item, Status):
                 yield item

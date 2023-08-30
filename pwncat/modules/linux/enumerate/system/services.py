@@ -87,7 +87,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.ONCE
 
     def enumerate(self, session):
-
         for fact in session.run(
             "enumerate.gather", types=["system.init"], progress=self.progress
         ):

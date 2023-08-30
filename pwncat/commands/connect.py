@@ -89,7 +89,6 @@ class Command(CommandDefinition):
     )
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         query_args = {}
         query_args["protocol"] = None
         query_args["user"] = None
@@ -105,7 +104,6 @@ class Command(CommandDefinition):
         used_implant = None
 
         if args.list:
-
             db = manager.db.open()
             implants = []
 
@@ -120,7 +118,6 @@ class Command(CommandDefinition):
 
             # Locate all installed implants
             for target in db.root.targets:
-
                 # Collect users
                 users = {}
                 for fact in target.facts:
@@ -244,7 +241,6 @@ class Command(CommandDefinition):
 
             # Locate all installed implants
             for target in db.root.targets:
-
                 if (
                     target.guid != query_args["host"]
                     and target.public_address[0] != query_args["host"]

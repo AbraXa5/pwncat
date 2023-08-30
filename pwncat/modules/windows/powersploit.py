@@ -95,7 +95,6 @@ class Module(BaseModule):
     POWERUP_URL = "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1"
 
     def run(self, session: "pwncat.manager.Session", group: str):
-
         # Use the result system so that other modules can query available groups
         if group == "list":
             yield from (GroupInfo(name) for name in self.MODULES.keys())

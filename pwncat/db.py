@@ -19,7 +19,6 @@ class Binary(persistent.Persistent):
     :func:`pwncat.platform.Platform.which`."""
 
     def __init__(self, name, path):
-
         # Name of the binary (parameter to which)
         self.name: Optional[str] = name
         # The path to the binary on the remote host

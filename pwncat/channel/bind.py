@@ -25,7 +25,6 @@ class Bind(Socket):
     """
 
     def __init__(self, port: int, host: str = None, **kwargs):
-
         if not host or host == "":
             host = "0.0.0.0"
 
@@ -62,7 +61,6 @@ class Bind(Socket):
             raise ChannelError(self, error_message)
 
     def connect(self):
-
         with Progress(
             f"bound to [blue]{self.host}[/blue]:[cyan]{self.port}[/cyan]",
             BarColumn(bar_width=None),

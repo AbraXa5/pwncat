@@ -38,7 +38,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         # Spawn a find command to locate the setuid binaries
         proc = session.platform.Popen(
             ["getcap", "-r", "/"],

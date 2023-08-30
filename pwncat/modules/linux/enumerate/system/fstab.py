@@ -52,7 +52,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.ONCE
 
     def enumerate(self, session):
-
         try:
             with session.platform.open("/etc/fstab", "r") as filp:
                 for line in filp:

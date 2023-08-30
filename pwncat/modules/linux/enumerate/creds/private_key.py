@@ -22,7 +22,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.PER_USER
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         # This uses a list because it does multiple things
         # 1. It _finds_ the private key locations
         # 2. It tries to _read_ the private keys

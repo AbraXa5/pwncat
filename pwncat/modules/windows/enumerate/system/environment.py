@@ -27,7 +27,6 @@ class Module(EnumerateModule):
     PLATFORM = [Windows]
 
     def enumerate(self, session):
-
         try:
             result = session.platform.powershell(
                 "Get-ChildItem env:\\ | Select Name,Value"

@@ -28,7 +28,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         try:
             with session.platform.open(
                 "/proc/sys/kernel/randomize_va_space", "r"

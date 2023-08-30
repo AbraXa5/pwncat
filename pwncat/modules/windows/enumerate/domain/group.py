@@ -32,7 +32,6 @@ class DomainGroup(WindowsGroup):
         self.objectcategory: str = data.get("objectcategory")
 
     def title(self, session: "pwncat.manager.Session"):
-
         members = []
         for uid in self.members:
             user = session.find_user(uid=uid)
@@ -82,7 +81,6 @@ class Module(EnumerateModule):
             groups = [groups]
 
         for group in groups:
-
             try:
                 yield Status(
                     f"[cyan]{group['samaccountname']}[/cyan]: requesting members"

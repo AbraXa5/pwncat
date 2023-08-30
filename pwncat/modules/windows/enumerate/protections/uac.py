@@ -84,7 +84,6 @@ class Module(EnumerateModule):
     PLATFORM = [Windows]
 
     def enumerate(self, session):
-
         # Reference:
         # https://book.hacktricks.xyz/windows/authentication-credentials-uac-and-efs#uac
 

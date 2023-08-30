@@ -99,7 +99,6 @@ class ReplacedFile(Tamper):
         self.data = data
 
     def revert(self, session: "pwncat.manager.Session"):
-
         if self.data is None:
             raise ModuleFailed("original data not preserved")
 
@@ -121,7 +120,6 @@ class ReplacedFile(Tamper):
         return True
 
     def title(self, session: "pwncat.manager.Session"):
-
         return self._annotate_title(
             session, f"replace content of [cyan]{self.path}[/cyan]"
         )
@@ -157,7 +155,6 @@ class CreatedFile(Tamper):
         return True
 
     def revert(self, session: "pwncat.manager.Session"):
-
         try:
             session.platform.Path(self.path).unlink()
         except FileNotFoundError:
@@ -168,7 +165,6 @@ class CreatedFile(Tamper):
         self.reverted = True
 
     def title(self, session: "pwncat.manager.Session"):
-
         return self._annotate_title(
             session, f"created file at [cyan]{self.path}[/cyan]"
         )
@@ -204,7 +200,6 @@ class CreatedDirectory(Tamper):
         return True
 
     def revert(self, session: "pwncat.manager.Session"):
-
         try:
             session.platform.Path(self.path).rmdir()
         except PermissionError:

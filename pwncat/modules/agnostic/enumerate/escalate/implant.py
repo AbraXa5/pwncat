@@ -12,7 +12,6 @@ class ImplantEscalationReplace(EscalationReplace):
         self.implant: Implant = implant
 
     def escalate(self, session: "pwncat.manager.Session"):
-
         return self.implant.escalate(session)
 
     def title(self, session: "pwncat.manager.Session"):
@@ -26,7 +25,6 @@ class ImplantEscalationSpawn(EscalationSpawn):
         self.implant: Implant = implant
 
     def escalate(self, session: "pwncat.manager.Session"):
-
         return self.implant.escalate(session)
 
     def title(self, session: "pwncat.manager.Session"):
@@ -42,7 +40,6 @@ class Module(EnumerateModule):
     PROVIDES = ["escalate.replace", "escalate.spawn"]
 
     def enumerate(self, session):
-
         for implant in session.run(
             "enumerate", types=["implant.replace", "implant.spawn"]
         ):

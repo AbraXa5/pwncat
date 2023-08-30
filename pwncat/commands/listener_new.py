@@ -70,7 +70,6 @@ class Command(CommandDefinition):
     LOCAL = True
 
     def _drop_duplicate(self, session: "pwncat.manager.Session"):
-
         for other in session.manager.sessions.values():
             if (
                 other is not session
@@ -83,7 +82,6 @@ class Command(CommandDefinition):
         return True
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         if args.drop_duplicate:
             established = self._drop_duplicate
         else:

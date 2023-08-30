@@ -44,7 +44,6 @@ class LinuxUser(User):
         shell: str,
         password: Optional[str] = None,
     ):
-
         # Normally, the hash is only stored in /etc/shadow
         if hash == "x":
             hash = None
@@ -85,7 +84,6 @@ class LinuxGroup(Group):
         members: List[int],
         password: Optional[str] = None,
     ):
-
         # We've never seen a group password hash, but those apparently exist????
         if hash == "x":
             hash = None

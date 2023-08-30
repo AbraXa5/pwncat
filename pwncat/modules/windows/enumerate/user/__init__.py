@@ -15,7 +15,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.ONCE
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         try:
             users = session.platform.powershell("Get-LocalUser")
             if not users:

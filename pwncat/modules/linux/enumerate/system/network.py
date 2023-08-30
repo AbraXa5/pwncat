@@ -30,7 +30,6 @@ class Module(EnumerateModule):
     PROVIDES = ["system.network.interface"]
 
     def enumerate(self, session):
-
         try:
             output = session.platform.run(
                 ["ip", "-c=never", "addr"], capture_output=True, text=True, check=True

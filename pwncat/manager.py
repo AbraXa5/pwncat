@@ -236,7 +236,6 @@ class Listener(threading.Thread):
         """
 
         with self._session_lock:
-
             if self.count is not None and self.count <= 0:
                 raise ListenerError("listener max connections reached")
 
@@ -388,7 +387,8 @@ class Listener(threading.Thread):
 
     def _ssl_wrap(self, server: socket.socket) -> ssl.SSLSocket:
         """Wrap the given server socket in an SSL context and return the new socket.
-        If the ``ssl`` option is not set, this method simply returns the original socket."""
+        If the ``ssl`` option is not set, this method simply returns the original socket.
+        """
 
         if not self.ssl:
             return server
@@ -746,7 +746,6 @@ class Session:
         self._progress.update(task, *args, **kwargs)
 
     def died(self):
-
         if self.id not in self.manager.sessions:
             return
 
@@ -786,11 +785,9 @@ class Session:
         self.died()
 
     def __enter__(self):
-
         return self
 
     def __exit__(self, _, __, ___):
-
         self.close()
 
 
@@ -931,7 +928,6 @@ class Manager:
         for loader, module_name, _ in pkgutil.walk_packages(
             paths, prefix="pwncat.modules."
         ):
-
             # Why is this check *not* part of pkgutil??????? D:<
             if module_name not in sys.modules:
                 module = loader.find_module(module_name).load_module(module_name)
@@ -957,7 +953,6 @@ class Manager:
             console.log(*args, **kwargs)
 
     def print(self, *args, **kwargs):
-
         if self.target is not None and self.target._progress is not None:
             self.target._progress.print(*args, **kwargs)
         else:
@@ -1011,15 +1006,12 @@ class Manager:
         )
 
         while self.interactive_running:
-
             try:
-
                 # This is it's own main loop that will continue until
                 # it catches a C-d sequence.
                 try:
                     self.parser.run()
                 except InteractiveExit:
-
                     if self.sessions and not confirm(
                         "There are active sessions. Are you sure?"
                     ):
@@ -1053,7 +1045,6 @@ class Manager:
                 def output_thread_main(
                     target: Session, exception_queue: queue.SimpleQueue
                 ):
-
                     while not interactive_complete.is_set():
                         try:
                             data = target.platform.channel.recv(4096)

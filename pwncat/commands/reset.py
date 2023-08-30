@@ -18,6 +18,5 @@ class Command(CommandDefinition):
     LOCAL = False
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         manager.log("[yellow]warning[/yellow]: reset not implemented in new framework")
         # pwncat.victim.reset()

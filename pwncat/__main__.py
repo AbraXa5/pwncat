@@ -17,7 +17,6 @@ from pwncat.platform import PlatformError
 
 
 def main():
-
     # Default log-level is "INFO"
     logging.getLogger().setLevel(logging.INFO)
 
@@ -106,7 +105,6 @@ def main():
 
     # Create the session manager
     with pwncat.manager.Manager(args.config) as manager:
-
         if args.verbose:
             # set the config variable `verbose` to `True` (globally)
             manager.config.set("verbose", True, True)
@@ -121,7 +119,6 @@ def main():
             return
 
         if args.list:
-
             db = manager.db.open()
             implants = []
 
@@ -136,7 +133,6 @@ def main():
 
             # Locate all installed implants
             for target in db.root.targets:
-
                 # Collect users
                 users = {}
                 for fact in target.facts:
@@ -233,15 +229,11 @@ def main():
             if query_args["certfile"] is not None or query_args["keyfile"] is not None:
                 query_args["ssl"] = True
 
-            if (
-                query_args["protocol"]
-                not in [
-                    None,
-                    "bind",
-                    "connect",
-                ]
-                and query_args.get("ssl")
-            ):
+            if query_args["protocol"] not in [
+                None,
+                "bind",
+                "connect",
+            ] and query_args.get("ssl"):
                 console.log(
                     f"[red]error[/red]: --ssl is incompatible with an [yellow]{query_args['protocol']}[/yellow] protocol"
                 )
@@ -288,7 +280,6 @@ def main():
 
                 # Locate all installed implants
                 for target in db.root.targets:
-
                     if (
                         target.guid != query_args["host"]
                         and target.public_address[0] != query_args["host"]
@@ -375,7 +366,6 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()
 
     sys.exit(0)

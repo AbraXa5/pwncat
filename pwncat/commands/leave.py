@@ -27,7 +27,6 @@ class Command(CommandDefinition):
     }
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         try:
             if args.all:
                 args.count = len(manager.target.layers)

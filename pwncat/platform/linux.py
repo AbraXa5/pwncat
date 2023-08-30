@@ -96,7 +96,6 @@ class PopenLinux(pwncat.subprocess.Popen):
                 self.stdin = self.stdin_raw
 
     def detach(self):
-
         # Indicate the process is complete
         self.returncode = 0
 
@@ -112,7 +111,6 @@ class PopenLinux(pwncat.subprocess.Popen):
         self.platform.command_running = None
 
     def poll(self):
-
         if self.returncode is not None:
             return self.returncode
 
@@ -148,7 +146,6 @@ class PopenLinux(pwncat.subprocess.Popen):
             return None
 
     def wait(self, timeout: float = None):
-
         if timeout is not None:
             end_time = time.time() + timeout
         else:
@@ -169,7 +166,6 @@ class PopenLinux(pwncat.subprocess.Popen):
         return self.returncode
 
     def communicate(self, input=None, timeout=None):
-
         if self.stdout is self.stdout_raw:
             empty = b""
         else:
@@ -213,7 +209,6 @@ class PopenLinux(pwncat.subprocess.Popen):
         return (data, empty)
 
     def kill(self):
-
         if self.returncode is not None:
             return
 
@@ -223,7 +218,6 @@ class PopenLinux(pwncat.subprocess.Popen):
         self.platform.command_running = None
 
     def terminate(self):
-
         if self.returncode is not None:
             return
 
@@ -428,7 +422,6 @@ class LinuxWriter(BufferedIOBase):
             # Control sequences need escaping
             translated = []
             for idx, c in enumerate(b):
-
                 # Track when the last new line was
                 if c == 0x0A:
                     self.since_newline = 0
@@ -524,7 +517,6 @@ class LinuxPath(pathlib.PurePosixPath):
         return False
 
     def writable(self):
-
         uid = self._target._id["euid"]
         gid = self._target._id["egid"]
         groups = self._target._id["groups"]
@@ -889,7 +881,6 @@ class Linux(Platform):
         return self._id["ruid"]
 
     def getenv(self, name: str):
-
         try:
             proc = self.run(f"echo ${name}", capture_output=True, text=True, check=True)
             return proc.stdout.rstrip("\n")
@@ -1292,7 +1283,6 @@ class Linux(Platform):
             buffering = -1
 
         if "w" in mode:
-
             for method in self.gtfo.iter_methods(
                 caps=Capability.WRITE, stream=Stream.RAW
             ):
@@ -1464,7 +1454,6 @@ class Linux(Platform):
 
         # Assume we don't need a password if we are root
         if current_user.id != 0:
-
             # Read password: prompt
             proc.stdout.read(10)
 
@@ -1481,7 +1470,6 @@ class Linux(Platform):
 
             # Check for keywords indicating failure
             if b"su: " in result.lower():
-
                 try:
                     # The call failed, wait for the result
                     proc.wait(timeout=5)
@@ -1583,7 +1571,6 @@ class Linux(Platform):
 
         # There's no password to deliver. It either succeeded or failed :shrug:
         if password is None:
-
             output = self.channel.peek(16, timeout=1).lower()
             if output == "sudo: a password":
                 # Cleanup the process
@@ -1604,7 +1591,6 @@ class Linux(Platform):
             or output.endswith(b"password: ")
             or b"lecture" in output
         ):
-
             # Drain remaining data in the socket (and peek buffer)
             self.channel.drain()
 
@@ -1677,7 +1663,6 @@ class Linux(Platform):
             # update current user and shell variable
             self.context_changed()
         else:
-
             # Going interactive requires a pty
             self.get_pty()
 

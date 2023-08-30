@@ -563,7 +563,6 @@ class CommandParser:
 
         while running:
             try:
-
                 if self.manager.config.module:
                     self.prompt.message = [
                         (
@@ -788,7 +787,8 @@ class CommandParser:
 
 class CommandLexer(RegexLexer):
     """Implements a Regular Expression based pygments lexer for dynamically highlighting
-    the pwncat prompt during typing. The tokens are generated from command definitions."""
+    the pwncat prompt during typing. The tokens are generated from command definitions.
+    """
 
     tokens = {}
 
@@ -847,7 +847,6 @@ class RemotePathCompleter(Completer):
         self.manager = manager
 
     def get_completions(self, document: Document, complete_event: CompleteEvent):
-
         if self.manager.target is None:
             return
 
@@ -870,7 +869,6 @@ class LocalPathCompleter(Completer):
     """Complete local file names/paths."""
 
     def get_completions(self, document: Document, complete_event: CompleteEvent):
-
         before = document.text_before_cursor.split()[-1]
         path, partial_name = os.path.split(before)
 

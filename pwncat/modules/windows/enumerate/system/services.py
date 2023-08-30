@@ -52,7 +52,6 @@ class Module(EnumerateModule):
     PLATFORM = [Windows]
 
     def enumerate(self, session):
-
         proc = session.platform.Popen(
             [
                 "wmic.exe",

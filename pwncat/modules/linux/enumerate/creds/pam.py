@@ -26,7 +26,6 @@ class Module(EnumerateModule):
     PROVIDES = ["creds.password"]
 
     def enumerate(self, session):
-
         # Ensure the user database is already retrieved
         session.find_user(uid=0)
 

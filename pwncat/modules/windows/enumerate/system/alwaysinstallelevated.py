@@ -30,7 +30,6 @@ class Module(EnumerateModule):
     PLATFORM = [Windows]
 
     def enumerate(self, session):
-
         registry_value = "AlwaysInstallElevated"
         registry_keys = [
             "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer\\",

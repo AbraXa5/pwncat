@@ -62,7 +62,6 @@ class UserToken(ExecuteAbility):
         return False
 
     def title(self, session: "pwncat.manager.Session"):
-
         user = session.find_user(uid=self.uid)
         if user is None:
             user_name = f"SID({repr(self.uid)})"

@@ -116,7 +116,6 @@ class Module(EnumerateModule):
     SCOPE = Scope.NONE
 
     def enumerate(self, session):
-
         script = """
 Get-WmiObject -Class Win32_Process | % {
     [PSCustomObject]@{

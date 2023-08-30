@@ -32,7 +32,6 @@ class Module(EnumerateModule):
     PLATFORM = [Windows]
 
     def enumerate(self, session):
-
         registry_value = "RunAsPPL"
         registry_key = "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\LSA"
 

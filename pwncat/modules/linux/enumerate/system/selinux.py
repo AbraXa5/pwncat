@@ -50,7 +50,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         try:
             output = session.platform.run("sestatus", capture_output=True, text=True)
         except (FileNotFoundError, PermissionError):

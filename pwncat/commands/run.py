@@ -41,7 +41,6 @@ class Command(CommandDefinition):
     }
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         module_name = args.module
 
         if args.module is None and manager.config.module is None:
@@ -95,7 +94,6 @@ class Command(CommandDefinition):
         if args.raw:
             console.print(result)
         else:
-
             if result is None or (isinstance(result, list) and not result):
                 console.log(f"Module [bold]{module_name}[/bold] completed successfully")
                 return

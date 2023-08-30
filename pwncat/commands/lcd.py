@@ -15,7 +15,6 @@ class Command(CommandDefinition):
     }
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         # Expand `~`
         path = pathlib.Path(args.path).expanduser()
 

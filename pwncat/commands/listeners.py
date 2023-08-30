@@ -149,7 +149,6 @@ class Command(CommandDefinition):
             dump_var("ssl_key", repr(listener.ssl_key))
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         if (args.kill or args.init) and args.id is None:
             self.parser.error("missing argument: id")
 
@@ -186,7 +185,6 @@ class Command(CommandDefinition):
         )
 
         for ident, listener in enumerate(manager.listeners):
-
             if listener.state is ListenerState.STOPPED and not args.all:
                 continue
 

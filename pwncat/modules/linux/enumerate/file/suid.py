@@ -43,7 +43,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.PER_USER
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         # This forces the session to enumerate users FIRST, so we don't run
         # into trying to enumerate _whilst_ enumerating SUID binaries...
         # since we can't yet run multiple processes at the same time

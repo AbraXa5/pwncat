@@ -22,7 +22,6 @@ class Module(EnumerateModule):
         already_leaked = []
 
         for ability in session.run("enumerate", types=["ability.file.read"]):
-
             if ability.uid == 0:
                 users = all_users
             else:

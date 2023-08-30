@@ -25,7 +25,6 @@ class DefenderData(Fact):
         return not self._configuration["DisableRealtimeMonitoring"]
 
     def title(self, session):
-
         if self.enabled:
             return "Windows Defender is [bold red]enabled[/bold red]"
 
@@ -51,7 +50,6 @@ class Module(EnumerateModule):
     PLATFORM = [Windows]
 
     def enumerate(self, session):
-
         if not session.platform.is_admin():
             session.log(
                 "[yellow]protections warning[/yellow]: not all Defender data can be received without admin privileges"

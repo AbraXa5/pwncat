@@ -48,7 +48,6 @@ class Socket(Channel):
     """
 
     def __init__(self, client: socket.socket = None, **kwargs):
-
         if isinstance(client, str):
             raise ChannelError(self, f"expected socket object not {repr(type(client))}")
 

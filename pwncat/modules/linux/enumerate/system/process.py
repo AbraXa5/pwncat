@@ -54,7 +54,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.ONCE
 
     def enumerate(self, session):
-
         try:
             proc = session.platform.run(
                 "ps -eo pid,ppid,uid,user,command --no-header -ww",

@@ -22,7 +22,6 @@ class Command(CommandDefinition):
     LOCAL = False
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         try:
             module = list(manager.target.find_module(args.module, exact=True))[0]
         except IndexError:

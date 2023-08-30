@@ -483,7 +483,6 @@ class Platform(ABC):
         log: str = None,
         verbose: bool = False,
     ):
-
         # This will throw a ChannelError if we can't complete the
         # connection, so we do it first.
         channel.connect()
@@ -515,7 +514,6 @@ class Platform(ABC):
         target = self
 
         class RemotePath(base_path, Path):
-
             _target = target
             _stat = None
 

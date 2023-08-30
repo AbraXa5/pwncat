@@ -81,7 +81,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.PER_USER
 
     def enumerate(self, session):
-
         try:
             # Get this user's crontab entries
             proc = session.platform.run(

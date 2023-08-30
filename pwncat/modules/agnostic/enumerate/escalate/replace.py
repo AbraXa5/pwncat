@@ -12,7 +12,6 @@ class DirectReplaceAbility(EscalationReplace):
         self.ability: ExecuteAbility = ability
 
     def escalate(self, session: "pwncat.manager.Session"):
-
         return self.ability.shell(session)
 
     def title(self, session: "pwncat.manager.Session"):
@@ -29,6 +28,5 @@ class Module(EnumerateModule):
     PROVIDES = ["escalate.replace"]
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         for ability in session.run("enumerate", types=["ability.execute"]):
             yield DirectReplaceAbility(self.name, ability)

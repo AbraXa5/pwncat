@@ -15,7 +15,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.ONCE
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         # Grab all the users and sort by their group ID
         users = {user.gid: user for user in session.run("enumerate", types=["user"])}
 

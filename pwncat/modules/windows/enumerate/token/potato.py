@@ -16,7 +16,6 @@ class Module(EnumerateModule):
     PROVIDES = ["token", "ability.execute"]
 
     def enumerate(self, session: "pwncat.manager.Session"):
-
         # Non-admin users will crash the C2 if we try bad potato
         if not session.platform.is_admin():
             return

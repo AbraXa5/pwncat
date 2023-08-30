@@ -15,7 +15,6 @@ class Module(EnumerateModule):
     PLATFORM = [Linux]
 
     def enumerate(self, session):
-
         build_id = None
         pretty_name = None
         ident = None

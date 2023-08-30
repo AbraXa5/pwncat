@@ -136,14 +136,12 @@ class WindowsFile(RawIOBase):
         return data
 
     def readinto(self, b: Union[memoryview, bytearray]):
-
         if self.eof:
             return 0
 
         try:
             result = self.platform.run_method("File", "read", self.handle, len(b))
         except ProtocolError as exc:
-
             # ERROR_BROKEN_PIPE
             if exc.code == 0x6D:
                 self.eof = True
@@ -208,7 +206,6 @@ class DotNetPlugin(object):
     """
 
     def __init__(self, platform: "Windows", name: str, checksum: str, ident: int):
-
         self.names = [name]
         self.checksum = checksum
         self.ident = ident
@@ -288,7 +285,6 @@ class PopenWindows(pwncat.subprocess.Popen):
                 )
 
     def detach(self):
-
         self.returncode = 0
 
         if self.stdout is not None:
@@ -302,7 +298,6 @@ class PopenWindows(pwncat.subprocess.Popen):
         return self.terminate()
 
     def terminate(self):
-
         if self.returncode is not None:
             return
 
@@ -325,7 +320,6 @@ class PopenWindows(pwncat.subprocess.Popen):
             return self.returncode
 
     def wait(self, timeout: float = None):
-
         if timeout is not None:
             end_time = time.time() + timeout
         else:
@@ -357,7 +351,6 @@ class PopenWindows(pwncat.subprocess.Popen):
         self.stdin = None
 
     def communicate(self, input=None, timeout=None):
-
         if self.returncode is not None:
             return (None, None)
 
@@ -578,7 +571,6 @@ class Windows(Platform):
         self.channel.sendline(thing)
 
         if wait:
-
             keyboard_interrupt = False
 
             # Receive the response
@@ -775,7 +767,6 @@ function prompt {
         bootstrap_input=None,
         **other_popen_kwargs,
     ) -> pwncat.subprocess.Popen:
-
         if self.interactive:
             raise PlatformError(
                 "cannot open non-interactive process in interactive mode"
@@ -864,7 +855,6 @@ function prompt {
 
     @interactive.setter
     def interactive(self, value):
-
         if value == self._interactive:
             return
 
@@ -887,7 +877,6 @@ function prompt {
             self.interactive_tracker = 0
             return
         if not value:
-
             # Receive the method response
             data = self.parse_response(self.channel.recvline())
             if data["error"] != 0:
@@ -910,7 +899,6 @@ function prompt {
         has_cr = False
 
         for idx, b in enumerate(data):
-
             # Basically, we just transform bare \r to \r\n
             if has_cr and b != ord("\n"):
                 transformed.append(ord("\n"))

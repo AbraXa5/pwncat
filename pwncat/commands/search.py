@@ -23,7 +23,6 @@ class Command(CommandDefinition):
     }
 
     def run(self, manager: "pwncat.manager.Manager", args):
-
         modules = list(manager.target.find_module(f"*{args.module}*"))
         min_width = max(
             len(module.name.removeprefix("agnostic.")) for module in modules

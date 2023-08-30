@@ -21,7 +21,6 @@ class Module(EnumerateModule):
     SCHEDULE = Schedule.PER_USER
 
     def enumerate(self, session):
-
         # The locations we will search in for passwords
         locations = ["/var/www", "$HOME", "/opt", "/etc"]
         # Known locations which match this search but don't contain useful entries

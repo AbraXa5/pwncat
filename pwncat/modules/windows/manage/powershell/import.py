@@ -67,7 +67,6 @@ class Module(BaseModule):
             raise PSModuleNotFoundError(orig_path)
 
     def run(self, session: "pwncat.manager.Session", path, force):
-
         name, filp = self.resolve_psmodule(session, path)
 
         if name in session.platform.psmodules and not force:
