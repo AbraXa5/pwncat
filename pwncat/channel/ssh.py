@@ -8,6 +8,7 @@ An optional port argument is also accepted.
 """
 import os
 import socket
+from io import StringIO
 from typing import Union, TextIO, Optional
 
 import paramiko
@@ -129,12 +130,17 @@ def load_private_key(identity: Union[str, TextIO], passphrase: str = None):
 
     try:
         if isinstance(identity, str):
-            return paramiko.pkey.load_private_key_file(
+            return paramiko.RSAKey.from_private_key_file(
                 os.path.expanduser(identity), password=passphrase
             )
 
         identity.seek(0)
-        return paramiko.pkey.load_private_key(identity.read(), password=passphrase)
+
+        with StringIO(identity.read()) as rsa_string:
+            private_key = paramiko.RSAKey.from_private_key(rsa_string)
+
+        return private_key
+
     except paramiko.PasswordRequiredException:
         # Bad passphrase
         if passphrase is not None:
